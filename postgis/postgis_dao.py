@@ -9,7 +9,7 @@ class PostGisDao:
             database="postgis",
             user="postgis",
             password="0",
-            host="192.168.84.30",
+            host="172.17.0.2",
             port="5432"
         )
         #获取操作游标
