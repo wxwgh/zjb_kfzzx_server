@@ -62,6 +62,9 @@ class MapListDao:
 
     #获取地图列表
     def get_map_list(self):
-        sql_str = "select * from map_services order by root_node asc,mid_node asc"
+        sql_str = "select * from map_services where is_delete = 0 order by order_code asc"
         datas = PostGisDao().select_all(sql_str)
+        # json字符串转python对象
+        for index in range(len(datas)):
+            datas[index]["params"] = json.loads(datas[index]["params"])
         return json.dumps(datas)

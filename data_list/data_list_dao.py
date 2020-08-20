@@ -6,7 +6,7 @@ class DataListDao:
 
     #获取数据列表
     def get_data_list(self):
-        sql_str = "select * from data_services"
+        sql_str = "select * from data_services where is_delete=0 order by order_code asc"
         datas = PostGisDao().select_all(sql_str)
         #json字符串转python对象
         for index in range(len(datas)):
